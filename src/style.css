@@ -1,5 +1,5 @@
 * {
-  font-family: 'Courier New', serif;
+  font-family: "Courier New", serif;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -8,8 +8,8 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background-color: #0A200A;
-  font-family: 'Courier New', serif;
+  background-color: #0a200a;
+  font-family: "Courier New", serif;
 }
 header {
   display: flex;
@@ -26,7 +26,7 @@ header span {
 header span a {
   text-decoration: none;
   color: white;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: "Courier New", Courier, monospace;
 }
 header nav ul {
   list-style: none;
@@ -40,7 +40,7 @@ header nav ul li {
 header nav ul li a {
   text-decoration: none;
   color: #fff;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: "Courier New", Courier, monospace;
   transition: 0.5s;
 }
 header nav ul li a:hover {
@@ -48,7 +48,7 @@ header nav ul li a:hover {
 }
 header nav ul li:first-child a {
   text-decoration: underline;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-weight: 600;
 }
 footer {
