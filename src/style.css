@@ -10,6 +10,7 @@ body {
   display: flex;
   flex-direction: column;
   background-color: #061306;
+  font-family: 'Courier New', serif;
 }
 
 header {
