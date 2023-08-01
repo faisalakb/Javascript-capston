@@ -1,17 +1,31 @@
-// countsLike.js
-const countLikes = async () => {
+const url = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/s1szyoelhRqTHhs2c19P/likes/';
+
+const countLikes = async (itemId, newLikesCount) => {
   try {
-    const response = await fetch('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/fy6DJ86u1eQhR7jHzpFg/likes');
-    if (response.status === 200) {
-      const data = await response.json();
-      // Calculate the total number of likes
-      const totalLikes = data.reduce((total, item) => total + item.likes, 0);
-      return totalLikes;
+    const response = await fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json; charset=UTF-8',
+      },
+      body: JSON.stringify({
+        item_id: itemId,
+        likes: newLikesCount,
+      }),
+    });
+
+    if (!response.ok) {
+      throw new Error('Error counting likes');
     }
-    throw new Error('Error while retrieving likes');
   } catch (error) {
-    throw new Error('Error while retrieving likes', error);
+    console.error('Error counting likes:', error.message);
   }
 };
 
-export default countLikes;
+const updateLikesCount = (itemId, newLikesCount) => {
+  const countsLike = document.querySelector(`[data-item-id="${itemId}"] + .add`);
+  if (countsLike) {
+    countsLike.textContent = newLikesCount;
+  }
+};
+
+export { countLikes, updateLikesCount };
