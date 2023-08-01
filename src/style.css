@@ -76,6 +76,7 @@ footer {
   justify-content: flex-start; /* Optional: Aligns items to the left */
   max-height: calc(100vh - 20px);
 }
+
 .sect {
   display: flex;
   width: 200px;
@@ -94,7 +95,7 @@ footer {
   display: none;
 }
 
-.cItems{
+.cItems {
   display: flex;
   opacity: 0.9;
   z-index: 1;
@@ -107,19 +108,18 @@ footer {
   margin: auto;
 }
 
-.commentImg{
+.commentImg {
   margin-top: -70%;
-  width:250px;
+  width: 250px;
   height: 300px;
 }
-
 
 .close {
   position: absolute;
   font-weight: bold;
   z-index: 1;
-  font-size:48px;
-  color:red;
+  font-size: 48px;
+  color: red;
   margin-top: -43%;
   margin-left: 37%;
 }
@@ -131,10 +131,10 @@ footer {
   cursor: pointer;
 }
 
-.itemSection{
+.itemSection {
   display: flex;
   column-gap: 10px;
   position: absolute;
-  width:auto;
-  border:2px solid green;
+  width: auto;
+  border: 2px solid green;
 }
