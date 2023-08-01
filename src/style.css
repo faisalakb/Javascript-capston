@@ -9,7 +9,6 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background-color: #0a200a;
   font-family: "Courier New", serif;
 }
 
@@ -67,4 +66,20 @@ footer {
   color: #fff;
   background-color: rgb(92, 92, 247);
   text-align: center;
+}
+
+.cards {
+  display: flex;
+  flex-direction: column;
+  column-gap: 20px;
+  flex-wrap: wrap;
+  justify-content: flex-start; /* Optional: Aligns items to the left */
+  max-height: calc(100vh - 20px);
+}
+.sect {
+  display: flex;
+  width: 200px;
+  height: 70px;
+  background-color: red;
+  border: 2px solid yellow;
 }
