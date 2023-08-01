@@ -1,6 +1,5 @@
 import './style.css';
-import display from '../module/display.js';
-import addLikes from '../module/addLikes.js';
+import retrevingdata from './modules/display.js';
 
-display();
-addLikes();
+retrevingdata();
+document.addEventListener('DOMContentLoaded', retrevingdata);
