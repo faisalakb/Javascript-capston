@@ -21,5 +21,4 @@ const getLikes = async () => {
   }
 };
 
-getLikes();
 export default getLikes;

@@ -218,8 +218,10 @@ const display = async () => {
 
       heartIcon.addEventListener('click', async (event) => {
         const itemId = event.target.getAttribute('data-item-id'); // Get the item_id from the custom attribute
+        console.log(likesData);
 
         let likesInfo = likesData.find((likes) => likes.item_id === itemId);
+        console.log(likesInfo);
         if (!likesInfo) {
           likesInfo = { item_id: itemId, likes: 0 };
         }
