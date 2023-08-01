@@ -24,6 +24,7 @@ header {
 header span {
   border: 2px solid yellowgreen;
   padding: 6px 6px;
+  margin-right: auto;
 }
 
 header span a {
@@ -51,7 +52,7 @@ header nav ul li a {
 }
 
 header nav ul li a:hover {
-  color: rgb(228, 0, 0);
+  color: rgb(84, 255, 5);
 }
 
 header nav ul li:first-child a {
