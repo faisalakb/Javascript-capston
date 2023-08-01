@@ -10,6 +10,8 @@ body {
   display: flex;
   flex-direction: column;
   font-family: "Courier New", serif;
+  background-color: #3f2e3e;
+  color: white;
 }
 
 header {
@@ -50,6 +52,11 @@ header nav ul li a {
   transition: 0.5s;
 }
 
+.movie a {
+  text-decoration: none;
+  color: blue;
+}
+
 header nav ul li a:hover {
   color: rgb(84, 255, 5);
 }
@@ -61,11 +68,16 @@ header nav ul li:first-child a {
 }
 
 footer {
-  margin-top: auto;
-  padding: 20px 20px;
   color: #fff;
   background-color: rgb(92, 92, 247);
   text-align: center;
+  margin-top: 20px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20px;
+  margin-top: 20px;
 }
 
 .cards {
@@ -75,11 +87,39 @@ footer {
   flex-wrap: wrap;
   justify-content: flex-start; /* Optional: Aligns items to the left */
   max-height: calc(100vh - 20px);
+  padding-bottom: 50px;
 }
+
 .sect {
   display: flex;
   width: 200px;
   height: 70px;
   background-color: red;
   border: 2px solid yellow;
+}
+
+/* Styles pour le conteneur principal */
+.movies-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 20px;
+}
+
+/* Styles pour chaque film (classe "movie") */
+.movie {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Styles pour l'image */
+.movie img {
+  width: 200px;
+  height: 300px;
+  margin-bottom: 10px;
+}
+
+/* Styles pour le paragraphe */
+.movie p {
+  margin-bottom: 5px;
 }
