@@ -10,6 +10,16 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./module/comments.js":
+/*!****************************!*\
+  !*** ./module/comments.js ***!
+  \****************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nlet a;\ndocument.addEventListener('DOMContentLoaded', () => {\n a=document.querySelector('.anc');\n});\nconst com=()=>{\n\na.addEventListener('click',()=>{\n    console.log('calling from comments');\n});\n\n}\n\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (com);\n\n//# sourceURL=webpack://javascript-capston/./module/comments.js?");
+
+/***/ }),
+
 /***/ "./module/display.js":
 /*!***************************!*\
   !*** ./module/display.js ***!
@@ -26,7 +36,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \****************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst getMovie = async () => {\n  const response = await fetch(`https://api.tvmaze.com/shows`);\n  if (response.status === 200) {\n    const data = await response.json();\n    return data;\n  }\n};\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (getMovie);\n\n\n//# sourceURL=webpack://javascript-capston/./module/getMovie.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst getMovie = async () => {\n  const response = await fetch(`https://api.tvmaze.com/shows`);\n  if (response.status === 200) {\n    const data = await response.json();\n    console.log(data);\n    return data;\n  }\n};\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (getMovie);\n\n\n//# sourceURL=webpack://javascript-capston/./module/getMovie.js?");
 
 /***/ }),
 
@@ -136,7 +146,7 @@ eval("\n\n/* istanbul ignore next  */\nfunction styleTagTransform(css, styleElem
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n/* harmony import */ var _module_display_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../module/display.js */ \"./module/display.js\");\n\n\n(0,_module_display_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"])();\n\n\n//# sourceURL=webpack://javascript-capston/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n/* harmony import */ var _module_display_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../module/display.js */ \"./module/display.js\");\n/* harmony import */ var _module_comments_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../module/comments.js */ \"./module/comments.js\");\n\n\n\n(0,_module_display_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"])();\n(0,_module_comments_js__WEBPACK_IMPORTED_MODULE_2__[\"default\"])();\n\n//# sourceURL=webpack://javascript-capston/./src/index.js?");
 
 /***/ })
 
