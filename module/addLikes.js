@@ -11,14 +11,16 @@ const addLikes = async (itemId) => {
         body: JSON.stringify({
           item_id: itemId,
         }),
-      }
+      },
     );
 
     if (response.status !== 201) {
       throw new Error('Erreur lors de la requête API.');
     }
   } catch (error) {
-    console.error('Erreur lors de la requête API.', error);
+    const errorMessageElement = document.getElementById('error-message');
+    errorMessageElement.textContent = `Erreur lors de la requête API : ${error.message}`;
+    throw new Error();
   }
 };
 
