@@ -1,3 +1,124 @@
 * {
+  font-family: "Courier New", serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: "Courier New", serif;
+  background-color: #3f2e3e;
+  color: white;
+}
+
+header {
+  display: flex;
+  flex-direction: row;
+  padding: 35px 50px;
+  justify-content: center;
+  background-color: rgb(101, 101, 247);
+}
+
+header span {
+  border: 2px solid yellowgreen;
+  padding: 6px 6px;
+  margin-right: auto;
+}
+
+header span a {
+  text-decoration: none;
+  color: white;
   font-family: "Courier New", Courier, monospace;
+}
+
+header nav ul {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  padding: 11px 0;
+}
+
+header nav ul li {
+  padding: 0 40px;
+}
+
+header nav ul li a {
+  text-decoration: none;
+  color: #fff;
+  font-family: "Courier New", Courier, monospace;
+  transition: 0.5s;
+}
+
+.movie a {
+  text-decoration: none;
+  color: blue;
+}
+
+header nav ul li a:hover {
+  color: rgb(84, 255, 5);
+}
+
+header nav ul li:first-child a {
+  text-decoration: underline;
+  font-family: "Roboto", sans-serif;
+  font-weight: 600;
+}
+
+footer {
+  color: #fff;
+  background-color: rgb(92, 92, 247);
+  text-align: center;
+  margin-top: 20px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20px;
+}
+
+.cards {
+  display: flex;
+  flex-direction: column;
+  column-gap: 20px;
+  flex-wrap: wrap;
+  justify-content: flex-start; /* Optional: Aligns items to the left */
+  max-height: calc(100vh - 20px);
+  padding-bottom: 50px;
+}
+
+.sect {
+  display: flex;
+  width: 200px;
+  height: 70px;
+  background-color: red;
+  border: 2px solid yellow;
+}
+
+/* Styles pour le conteneur principal */
+.movies-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 20px;
+}
+
+/* Styles pour chaque film (classe "movie") */
+.movie {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Styles pour l'image */
+.movie img {
+  width: 200px;
+  height: 300px;
+  margin-bottom: 10px;
+}
+
+/* Styles pour le paragraphe */
+.movie p {
+  margin-bottom: 5px;
 }
