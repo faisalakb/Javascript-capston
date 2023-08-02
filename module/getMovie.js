@@ -1,11 +1,15 @@
 const getMovie = async () => {
-  const response = await fetch('https://api.tvmaze.com/shows');
-  if (response.status === 200) {
-    const data = await response.json();
-    return data;
+  try {
+    const response = await fetch('https://api.tvmaze.com/shows');
+    if (response.status === 200) {
+      const data = await response.json();
+      const limitedData = data.slice(0, 16);
+      return limitedData;
+    }
+    throw new Error('Error while retrieving movies');
+  } catch (error) {
+    throw new Error('Error while retrieving movies', error);
   }
-
-  return [];
 };
 
 export default getMovie;
