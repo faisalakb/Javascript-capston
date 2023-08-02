@@ -30,11 +30,15 @@ const popup = (image, name, genre, language) => {
   img.classList.add('commentImg');
   img.src = image;
   img.alt = 'no img found';
-
+  const inpSect = document.createElement('section');
+  inpSect.innerHTML=`<section class="inpSect"><br><br><h4>Your Review</h4><br><input type="text" class="inptxt" id="inpIdName" placeholder="Your Name"  maxlength="15"><br><br>
+  <input type="text" class="inptxt" id="inpIdScore" placeholder="Your Comment" maxlength="30"><br><br>
+  <input id="submitBtn"class="subBtn"type="submit" value="Submit"></section>`;
   commentItems.appendChild(img);
   itemsSection.appendChild(nameTag);
   itemsSection.appendChild(languageTag);
   itemsSection.appendChild(genreTag);
+  commentItems.appendChild(inpSect);
   commentItems.appendChild(itemsSection);
   commentContainer.appendChild(commentItems);
 };
