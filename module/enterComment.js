@@ -17,7 +17,7 @@ const addComments = async () => {
         throw new Error('Error entering like');
       }
 
-      return response.text(); // This returns a Promise that resolves with the JSON data
+      return response.text(); 
     })
     .catch((error) => {
       console.error('Like Error:', error);
