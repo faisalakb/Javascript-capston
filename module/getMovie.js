@@ -7,4 +7,5 @@ const getMovie = async () => {
 
   return [];
 };
+
 export default getMovie;
