@@ -19,6 +19,7 @@ const popup = (image, name, genre, language) => {
   const nameTag = document.createElement('h4');
   const languageTag = document.createElement('h4');
   const genreTag = document.createElement('h4');
+  const brTag = document.createElement('br');
   nameTag.textContent = `MovieName :${name}`;
   languageTag.textContent = `Language :${language}`;
   const content = `Genre : ${genre.join(', ')}`;
@@ -37,6 +38,7 @@ const popup = (image, name, genre, language) => {
   commentItems.appendChild(img);
   itemsSection.appendChild(nameTag);
   itemsSection.appendChild(languageTag);
+  itemsSection.appendChild(brTag);
   itemsSection.appendChild(genreTag);
   commentItems.appendChild(inpSect);
   commentItems.appendChild(itemsSection);

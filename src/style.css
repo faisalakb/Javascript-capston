@@ -133,6 +133,7 @@ footer {
 
 .itemSection {
   display: flex;
+  flex-direction: column;
   column-gap: 10px;
   position: absolute;
   width: auto;
