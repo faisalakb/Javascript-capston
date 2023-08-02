@@ -10,6 +10,8 @@ body {
   display: flex;
   flex-direction: column;
   font-family: "Courier New", serif;
+  background-color: #3f2e3e;
+  color: white;
 }
 
 header {
@@ -66,6 +68,10 @@ footer {
   color: #fff;
   background-color: rgb(92, 92, 247);
   text-align: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
 .movies-container {
@@ -108,8 +114,9 @@ footer {
   flex-direction: column;
   width: 54%;
   height: 70px;
-  background-color: red;
-  border: 2px solid yellow;
+  background-color: #8f658c;
+  border: 2px solid rgb(92, 92, 247);
+  border-radius: 10px;
 }
 
 /* Ajoutez vos autres styles CSS ici */
