@@ -20,7 +20,7 @@ const display = async () => {
       const cardNum = document.querySelector('#cardNum');
       const cards = document.querySelectorAll('.movie');
       cardNum.innerHTML = `Shows(${cards.length})`;
-    }
+    };
 
     container.innerHTML = ''; // Clear the container before adding new elements
 
