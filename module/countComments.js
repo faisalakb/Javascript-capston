@@ -1,4 +1,4 @@
-import getComments from './getComment';
+import getComments from './getComment.js';
 
 const comCount = async (mid) => {
   console.log('Getting from countComments');

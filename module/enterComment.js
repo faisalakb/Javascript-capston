@@ -18,9 +18,6 @@ const addComments = async (mId, uName, uComment) => {
       }
 
       return response.text();
-    })
-    .catch((error) => {
-      console.error('Like Error:', error);
     });
 };
 
