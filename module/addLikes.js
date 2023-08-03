@@ -15,9 +15,6 @@ const addLikes = async () => {
         throw new Error('Error entering like');
       }
       return response.text(); // This returns a Promise that resolves with the JSON data
-    })
-    .catch((error) => {
-      console.error('Like Error:', error);
     });
 };
 

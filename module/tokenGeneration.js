@@ -15,10 +15,6 @@ const getToken = async () => {
         throw new Error('From GET: Network response was not ok');
       }
       return response.json(); // This returns a Promise that resolves with the JSON data
-    })
-
-    .catch((error) => {
-      console.error('Error:', error);
     });
 };
 
