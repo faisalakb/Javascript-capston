@@ -1,4 +1,3 @@
-// Import the necessary functions
 import enterComments from './enterComment.js';
 import getComments from './getComment.js';
 import countComments from './countComments.js';
@@ -41,7 +40,6 @@ const popup = async (mId, image, name, genre, language) => {
 
   tbl.appendChild(trH);
   if (Array.isArray(commentData)) {
-    // Loop through each comment and create rows in the table
 
     commentData.forEach((element) => {
       const tr = document.createElement('tr');
@@ -57,21 +55,20 @@ const popup = async (mId, image, name, genre, language) => {
       tbl.appendChild(tr);
     });
     cCount.textContent = `Total Comments :${comCount}`;
-    // Append the table to the dynamic comment container
     dynCom.appendChild(tbl);
   } else {
-    // No comments available, show a message
+ 
     const noCommentsMsg = document.createElement('p');
     noCommentsMsg.textContent = 'No comments available.';
     dynCom.appendChild(noCommentsMsg);
   }
 
-  // Close the popup when the close button is clicked
+
   cross.onclick = function () {
     commentContainer.style.display = 'none';
   };
 
-  // Create elements to display movie information and review input fields
+
   const img = document.createElement('img');
   const nameTag = document.createElement('h4');
   const languageTag = document.createElement('h4');
@@ -144,7 +141,6 @@ const popup = async (mId, image, name, genre, language) => {
   commentItems.appendChild(dynCom);
 };
 
-// Function to show comments popup for a movie
 const comments = (id, image, name, genre, language) => {
   popup(id, image, name, genre, language);
 };
