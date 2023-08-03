@@ -84,4 +84,3 @@ const display = async () => {
 };
 
 export default display;
-
