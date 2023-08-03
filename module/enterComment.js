@@ -1,6 +1,5 @@
-
 const url = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/s1szyoelhRqTHhs2c19P/comments/';
-const addComments = async (mId,uName,uComment) => {
+const addComments = async (mId, uName, uComment) => {
   fetch(url, {
     method: 'POST',
     dataType: 'json',

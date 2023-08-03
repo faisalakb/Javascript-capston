@@ -109,7 +109,7 @@ footer {
 }
 
 .commentImg {
-position: absolute;
+  position: absolute;
   width: 250px;
   height: 300px;
   margin-top: -30%;
@@ -189,17 +189,19 @@ position: absolute;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: black;
 }
-.dynCom{
+
+.dynCom {
   position: absolute;
-  border:2px solid blue;
+  border: 2px solid blue;
   max-height: 200px; /* Set the maximum height to control the visible area */
   max-width: 500px;
   overflow-y: auto; /* Add vertical scrollbar when content exceeds max-height */
   margin-top: 10%;
-  color:black;
-
+  color: black;
 }
 
-table, th, td {
+table,
+th,
+td {
   border: 1px solid;
 }

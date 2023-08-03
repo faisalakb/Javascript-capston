@@ -40,7 +40,6 @@ const display = async () => {
 
       heartIcon.addEventListener('click', async (event) => {
         const itemId = event.target.getAttribute('data-item-id'); // Get the item_id from the custom attribute
-        
 
         let likesInfo = likesData.find((likes) => likes.item_id === itemId);
         if (!likesInfo) {
@@ -55,8 +54,6 @@ const display = async () => {
 
         totalLikesPerMovie[itemId] = newLikesCount;
         display();
-        
-       
       });
 
       countsLike.classList.add('add');
@@ -74,9 +71,9 @@ const display = async () => {
       sect.classList.add('sect');
       container.appendChild(sect);
 
-      a.addEventListener('click', (e) => {
-        comments(element.id, element.image.original, element.name, element.genres, element.language);
-        
+      a.addEventListener('click', () => {
+        comments(element.id, element.image.original, element.name,
+          element.genres, element.language);
       });
     });
   } catch (error) {

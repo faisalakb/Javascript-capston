@@ -22,8 +22,6 @@ const popup = async (mId, image, name, genre, language) => {
   commentContainer.setAttribute('id', 'myModal');
   commentContainer.style.display = 'block';
   container.appendChild(commentContainer);
-  const getComment = commentData[mId];
-
   const trH = document.createElement('tr');
   const th1 = document.createElement('th');
   th1.textContent = 'Date';
@@ -39,7 +37,7 @@ const popup = async (mId, image, name, genre, language) => {
 
   if (Array.isArray(commentData)) {
     // Loop through each comment and create rows in the table
-    commentData.forEach(element => {
+    commentData.forEach((element) => {
       const tr = document.createElement('tr');
       const dat = document.createElement('td');
       const usr = document.createElement('td');
@@ -101,8 +99,8 @@ const popup = async (mId, image, name, genre, language) => {
   commentContainer.appendChild(commentItems);
 
   // Add event listener to the submit button to handle comment submission
-  
-    // Add event listener to the submit button using event delegation
+
+  // Add event listener to the submit button using event delegation
   commentContainer.addEventListener('click', async (event) => {
     const subId = event.target;
     if (subId.id === 'submitBtn') {
