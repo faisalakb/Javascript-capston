@@ -19,7 +19,12 @@ header {
   flex-direction: row;
   padding: 35px 50px;
   justify-content: center;
-  background-color: rgb(101, 101, 247);
+  background-color: white;
+  border:3px solid black;
+  background-image: url(./images.png);
+  background-repeat: no-repeat;
+  background-size: 85px 85px;
+  background-position: 20% center;
 }
 
 header span {
@@ -39,15 +44,17 @@ header nav ul {
   display: flex;
   flex-direction: row;
   padding: 11px 0;
+  margin-left: 10%;
 }
 
 header nav ul li {
   padding: 0 40px;
+  margin-left: 20px;
 }
 
 header nav ul li a {
   text-decoration: none;
-  color: #fff;
+  color: black;
   font-family: "Courier New", Courier, monospace;
   transition: 0.5s;
 }
@@ -65,8 +72,8 @@ header nav ul li:first-child a {
 footer {
   margin-top: auto;
   padding: 15px 15px;
-  color: #fff;
-  background-color: rgb(92, 92, 247);
+  color: black;
+  background-color: white;
   text-align: center;
   position: fixed;
   bottom: 0;
@@ -77,10 +84,11 @@ footer {
 .movies-container {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(5, 1fr);
+  grid-template-rows: repeat(4, 1fr);
   gap: 20px;
   justify-items: flex-start;
-  max-height: calc(100vh - 20px);
+
+ 
 }
 
 .model {
@@ -167,6 +175,7 @@ footer {
   flex-direction: column;
   align-items: center;
   width: 100%;
+
 }
 
 .movie img {
@@ -207,16 +216,16 @@ td {
 .sect {
   display: flex;
   flex-direction: column;
-  width: 54%;
+  width: 45%;
   height: 70px;
   background-color: #8f658c;
-  border: 2px solid rgb(92, 92, 247);
-  border-radius: 10px;
+  border: 2px solid black;
 }
 
 .cards-con {
   padding-top: 2%;
-  padding-bottom: 62%;
+  margin-bottom: 4%;
+
 }
 
 .cCount {
@@ -225,3 +234,4 @@ td {
   margin-bottom: 2%;
   color: #000;
 }
+
