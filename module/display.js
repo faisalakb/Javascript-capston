@@ -16,6 +16,12 @@ const display = async () => {
       return acc;
     }, {});
 
+    const cardscounter = () => {
+      const cardNum = document.querySelector('#cardNum');
+      const cards = document.querySelectorAll('.movie');
+      cardNum.innerHTML = `Shows(${cards.length})`;
+    }
+
     container.innerHTML = ''; // Clear the container before adding new elements
 
     getMovieData.forEach((element) => {
@@ -80,6 +86,7 @@ const display = async () => {
           element.genres, element.language);
       });
     });
+    cardscounter();
   } catch (error) {
     console.log('Une erreur s\'est produite lors de l\'affichage des films', error);
   }
