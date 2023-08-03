@@ -8,7 +8,7 @@
   <h3><b>Faisal-&-Esso-TV-Shows</b></h3>
 </div>
 
-<h1>Javascript group capstone project</h1>
+<h1>Javascript group-capstone project</h1>
 
 # 📗 Table of Contents
 
