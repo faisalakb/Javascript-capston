@@ -81,19 +81,6 @@ footer {
   gap: 20px;
   justify-items: flex-start;
   max-height: calc(100vh - 20px);
-  border: 2px solid yellow;
-}
-
-.sect {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  row-gap: 5px;
-  width: 200px;
-  height: 70px;
-  background-color: red;
-  border: 2px solid yellow;
-  margin: auto;
 }
 
 .model {
@@ -149,7 +136,6 @@ footer {
   column-gap: 10px;
   position: absolute;
   width: auto;
-  border: 2px solid green;
   color: #000;
   margin-top: -7%;
 }
@@ -163,7 +149,6 @@ footer {
 
 .inpSect {
   position: absolute;
-  border: 2px solid red;
   margin-top: 12%;
   margin-left: -8%;
 }
