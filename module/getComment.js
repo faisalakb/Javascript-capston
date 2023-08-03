@@ -12,6 +12,7 @@ const getComments = async (itemId) => {
   );
 
   const data = await response.json();
+  console.log('calling from getcomments');
   console.log(data);
   return data;
 };

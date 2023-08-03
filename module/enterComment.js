@@ -1,12 +1,13 @@
+
 const url = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/s1szyoelhRqTHhs2c19P/comments/';
-const addComments = async () => {
+const addComments = async (mId,uName,uComment) => {
   fetch(url, {
     method: 'POST',
     dataType: 'json',
     body: JSON.stringify({
-      item_id: '1',
-      username: 'Jane',
-      comment: 'Hello',
+      item_id: mId,
+      username: uName,
+      comment: uComment,
     }),
     headers: {
       'Content-type': 'application/json; charset=UTF-8',
