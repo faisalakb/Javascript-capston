@@ -1,6 +1,4 @@
-// itemsCounter.test.js
-
-const countItems = require('./itemsCounter');
+import countItems from './itemsCounter.js';
 
 describe('countItems function', () => {
   // Test case for an empty array

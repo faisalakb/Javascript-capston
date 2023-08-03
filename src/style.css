@@ -94,13 +94,10 @@ footer {
   top: 0;
   left: 0;
   opacity: 0.9;
-
   z-index: 9999; /* Set a high z-index value to ensure it appears above everything */
   width: 100vw;
   height: 100vh;
   background: #c1c7d0;
-   
-
 }
 
 .cItems {
