@@ -213,3 +213,11 @@ td {
   border: 2px solid rgb(92, 92, 247);
   border-radius: 10px;
 }
+
+.cCount{
+  border: 2px solid blue;
+  width: 80px;
+  height:100px;
+  margin-right: 60%;
+  color:#000
+}

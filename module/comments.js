@@ -8,9 +8,12 @@ const container = document.getElementById('container');
 const popup = async (mId, image, name, genre, language) => {
   // Get the comments data for the given mId
   const commentData = await getComments(mId);
-
+  
   const commentContainer = document.createElement('div');
   const commentItems = document.createElement('div');
+  const cCount=document.createElement('h3');
+  cCount.classList.add('cCount');
+
   const dynCom = document.createElement('div');
   const tbl = document.createElement('table');
   dynCom.classList.add('dynCom');
@@ -34,9 +37,10 @@ const popup = async (mId, image, name, genre, language) => {
   trH.appendChild(th3);
 
   tbl.appendChild(trH);
-
+  let count=0
   if (Array.isArray(commentData)) {
     // Loop through each comment and create rows in the table
+    
     commentData.forEach((element) => {
       const tr = document.createElement('tr');
       const dat = document.createElement('td');
@@ -49,8 +53,9 @@ const popup = async (mId, image, name, genre, language) => {
       tr.appendChild(usr);
       tr.appendChild(com);
       tbl.appendChild(tr);
+      count=count+1
     });
-
+    cCount.textContent='Total Comments are'+count;
     // Append the table to the dynamic comment container
     dynCom.appendChild(tbl);
   } else {
@@ -87,16 +92,6 @@ const popup = async (mId, image, name, genre, language) => {
   <input type="text" class="inptxt" id="revId" placeholder="Your Comment" maxlength="30"><br><br>
   <input id="submitBtn"class="subBtn"type="submit" value="Submit"></section>`;
 
-  // Append all elements to the comment container
-  commentItems.appendChild(img);
-  itemsSection.appendChild(nameTag);
-  itemsSection.appendChild(languageTag);
-  itemsSection.appendChild(brTag);
-  itemsSection.appendChild(genreTag);
-  commentItems.appendChild(inpSect);
-  commentItems.appendChild(itemsSection);
-  commentItems.appendChild(dynCom);
-  commentContainer.appendChild(commentItems);
 
   // Add event listener to the submit button to handle comment submission
 
@@ -113,6 +108,7 @@ const popup = async (mId, image, name, genre, language) => {
 
       // Update the comment section dynamically with the newly entered comment
       const newCommentData = await getComments(mId);
+      cCount.textContent= newCommentData.length;
       const newComment = newCommentData[newCommentData.length - 1];
 
       const tr = document.createElement('tr');
@@ -128,6 +124,19 @@ const popup = async (mId, image, name, genre, language) => {
       tbl.appendChild(tr);
     }
   });
+    // Append all elements to the comment container
+    commentItems.appendChild(img);
+    itemsSection.appendChild(nameTag);
+    itemsSection.appendChild(languageTag);
+    itemsSection.appendChild(brTag);
+    itemsSection.appendChild(genreTag);
+    commentItems.appendChild(inpSect);
+    commentItems.appendChild(itemsSection);
+    commentItems.appendChild(cCount);
+    commentItems.appendChild(dynCom);
+    commentContainer.appendChild(commentItems);
+  
+
 };
 
 // Function to show comments popup for a movie
