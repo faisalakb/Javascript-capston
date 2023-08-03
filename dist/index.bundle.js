@@ -16,7 +16,27 @@
   \****************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst container = document.getElementById('container');\n\nconst popup = (image, name, genre, language) => {\n  const commentContainer = document.createElement('div');\n  const commentItems = document.createElement('div');\n  commentContainer.classList.add('model');\n  commentItems.classList.add('cItems');\n  const cross = document.createElement('i');\n  cross.classList.add('close', 'fa', 'fa-close');\n  commentItems.appendChild(cross);\n  commentContainer.setAttribute('id', 'myModal');\n  commentContainer.style.display = 'block';\n  container.appendChild(commentContainer);\n  cross.onclick = function () {\n    commentContainer.style.display = 'none';\n  };\n\n  const img = document.createElement('img');\n  const nameTag = document.createElement('h4');\n  const languageTag = document.createElement('h4');\n  const genreTag = document.createElement('h4');\n  const brTag = document.createElement('br');\n  nameTag.textContent = `MovieName :${name}`;\n  languageTag.textContent = `Language :${language}`;\n  const content = `Genre : ${genre.join(', ')}`;\n  genreTag.textContent = content;\n\n  const itemsSection = document.createElement('section');\n  itemsSection.classList.add('itemSection');\n\n  img.classList.add('commentImg');\n  img.src = image;\n  img.alt = 'no img found';\n  const inpSect = document.createElement('section');\n  inpSect.innerHTML = `<section class=\"inpSect\"><br><br><h4>Your Review</h4><br><input type=\"text\" class=\"inptxt\" id=\"inpIdName\" placeholder=\"Your Name\"  maxlength=\"15\"><br><br>\n  <input type=\"text\" class=\"inptxt\" id=\"inpIdScore\" placeholder=\"Your Comment\" maxlength=\"30\"><br><br>\n  <input id=\"submitBtn\"class=\"subBtn\"type=\"submit\" value=\"Submit\"></section>`;\n  commentItems.appendChild(img);\n  itemsSection.appendChild(nameTag);\n  itemsSection.appendChild(languageTag);\n  itemsSection.appendChild(brTag);\n  itemsSection.appendChild(genreTag);\n  commentItems.appendChild(inpSect);\n  commentItems.appendChild(itemsSection);\n  commentContainer.appendChild(commentItems);\n};\n\nconst comments = (e, image, name, genre, language) => {\n  popup(image, name, genre, language);\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (comments);\n\n//# sourceURL=webpack://javascript-capston/./module/comments.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _enterComment_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./enterComment.js */ \"./module/enterComment.js\");\n/* harmony import */ var _getComment_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./getComment.js */ \"./module/getComment.js\");\n/* harmony import */ var _countComments_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./countComments.js */ \"./module/countComments.js\");\n// Import the necessary functions\n\n\n\n\nconst container = document.getElementById('container');\n\n// Function to display the comments popup\nconst popup = async (mId, image, name, genre, language) => {\n  // Get the comments data for the given mId\n  const commentData = await (0,_getComment_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"])(mId);\n\n  const commentContainer = document.createElement('div');\n  const commentItems = document.createElement('div');\n  const cCount = document.createElement('h3');\n  cCount.classList.add('cCount');\n\n  const comCount = await (0,_countComments_js__WEBPACK_IMPORTED_MODULE_2__[\"default\"])(mId);\n\n  const dynCom = document.createElement('div');\n  const tbl = document.createElement('table');\n  dynCom.classList.add('dynCom');\n  commentContainer.classList.add('model');\n  commentItems.classList.add('cItems');\n  const cross = document.createElement('i');\n  cross.classList.add('close', 'fa', 'fa-close');\n  commentItems.appendChild(cross);\n  commentContainer.setAttribute('id', 'myModal');\n  commentContainer.style.display = 'block';\n  container.appendChild(commentContainer);\n  const trH = document.createElement('tr');\n  const th1 = document.createElement('th');\n  th1.textContent = 'Date';\n  const th2 = document.createElement('th');\n  th2.textContent = 'User';\n  const th3 = document.createElement('th');\n  th3.textContent = 'Comment';\n  trH.appendChild(th1);\n  trH.appendChild(th2);\n  trH.appendChild(th3);\n\n  tbl.appendChild(trH);\n  if (Array.isArray(commentData)) {\n    // Loop through each comment and create rows in the table\n\n    commentData.forEach((element) => {\n      const tr = document.createElement('tr');\n      const dat = document.createElement('td');\n      const usr = document.createElement('td');\n      const com = document.createElement('td');\n      dat.textContent = element.creation_date;\n      usr.textContent = element.username;\n      com.textContent = element.comment;\n      tr.appendChild(dat);\n      tr.appendChild(usr);\n      tr.appendChild(com);\n      tbl.appendChild(tr);\n    });\n    cCount.textContent = `Total Comments :${comCount}`;\n    // Append the table to the dynamic comment container\n    dynCom.appendChild(tbl);\n  } else {\n    // No comments available, show a message\n    const noCommentsMsg = document.createElement('p');\n    noCommentsMsg.textContent = 'No comments available.';\n    dynCom.appendChild(noCommentsMsg);\n  }\n\n  // Close the popup when the close button is clicked\n  cross.onclick = function () {\n    commentContainer.style.display = 'none';\n  };\n\n  // Create elements to display movie information and review input fields\n  const img = document.createElement('img');\n  const nameTag = document.createElement('h4');\n  const languageTag = document.createElement('h4');\n  const genreTag = document.createElement('h4');\n  const brTag = document.createElement('br');\n  nameTag.textContent = `MovieName: ${name}`;\n  languageTag.textContent = `Language: ${language}`;\n  const content = `Genre: ${genre.join(', ')}`;\n  genreTag.textContent = content;\n\n  const itemsSection = document.createElement('section');\n  itemsSection.classList.add('itemSection');\n\n  img.classList.add('commentImg');\n  img.src = image;\n  img.alt = 'no img found';\n  const inpSect = document.createElement('section');\n  inpSect.innerHTML = `<section class=\"inpSect\"><br><br><h4>Your Review</h4><br><input type=\"text\" class=\"inptxt\" id=\"inpIdName\" placeholder=\"Your Name\"  maxlength=\"15\"><br><br>\n  <input type=\"text\" class=\"inptxt\" id=\"revId\" placeholder=\"Your Comment\" maxlength=\"30\"><br><br>\n  <input id=\"submitBtn\"class=\"subBtn\"type=\"submit\" value=\"Submit\"></section>`;\n\n  // Add event listener to the submit button to handle comment submission\n\n  // Add event listener to the submit button using event delegation\n  commentContainer.addEventListener('click', async (event) => {\n    const subId = event.target;\n    if (subId.id === 'submitBtn') {\n      const userName = commentContainer.querySelector('#inpIdName');\n      const userReview = commentContainer.querySelector('#revId');\n      // Call the function to submit the comment\n      await (0,_enterComment_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(mId, userName.value, userReview.value);\n      userName.value = '';\n      userReview.value = '';\n      const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));\n      await delay(500);\n      // Update the comment section dynamically with the newly entered comment\n      const newCommentData = await (0,_getComment_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"])(mId);\n      cCount.textContent = `Total Comments :${await (0,_countComments_js__WEBPACK_IMPORTED_MODULE_2__[\"default\"])(mId)}`;\n\n      while (tbl.lastElementChild) {\n        tbl.removeChild(tbl.lastElementChild);\n      }\n      tbl.appendChild(trH);\n      newCommentData.forEach((newComment) => {\n        const tr = document.createElement('tr');\n        const dat = document.createElement('td');\n        const usr = document.createElement('td');\n        const com = document.createElement('td');\n        dat.textContent = newComment.creation_date;\n        usr.textContent = newComment.username;\n        com.textContent = newComment.comment;\n        tr.appendChild(dat);\n        tr.appendChild(usr);\n        tr.appendChild(com);\n        tbl.appendChild(tr);\n      });\n    }\n  });\n  // Append all elements to the comment container\n  commentItems.appendChild(img);\n  itemsSection.appendChild(nameTag);\n  itemsSection.appendChild(languageTag);\n  itemsSection.appendChild(brTag);\n  itemsSection.appendChild(genreTag);\n  commentItems.appendChild(inpSect);\n  commentItems.appendChild(itemsSection);\n  commentItems.appendChild(cCount);\n\n  commentContainer.appendChild(commentItems);\n  commentItems.appendChild(dynCom);\n};\n\n// Function to show comments popup for a movie\nconst comments = (id, image, name, genre, language) => {\n  popup(id, image, name, genre, language);\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (comments);\n\n\n//# sourceURL=webpack://javascript-capston/./module/comments.js?");
+
+/***/ }),
+
+/***/ "./module/countComments.js":
+/*!*********************************!*\
+  !*** ./module/countComments.js ***!
+  \*********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _getComment__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./getComment */ \"./module/getComment.js\");\n\n\nconst comCount = async (mid) => {\n  console.log('Getting from countComments');\n  const commentData = await (0,_getComment__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(mid);\n  let count = 0;\n  if (Array.isArray(commentData)) {\n    // Loop through each comment and create rows in the table\n\n    commentData.forEach((element) => {\n      const len = element.comment;\n      if (len.length) {\n        count += 1;\n      } else {\n        // do nothing\n      }\n    });\n  }\n\n  return count;\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (comCount);\n\n//# sourceURL=webpack://javascript-capston/./module/countComments.js?");
+
+/***/ }),
+
+/***/ "./module/countsLike.js":
+/*!******************************!*\
+  !*** ./module/countsLike.js ***!
+  \******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   countLikes: () => (/* binding */ countLikes),\n/* harmony export */   updateLikesCount: () => (/* binding */ updateLikesCount)\n/* harmony export */ });\nconst url = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/s1szyoelhRqTHhs2c19P/likes/';\n\nconst countLikes = async (itemId, newLikesCount) => {\n  try {\n    const response = await fetch(url, {\n      method: 'POST',\n      headers: {\n        'Content-Type': 'application/json; charset=UTF-8',\n      },\n      body: JSON.stringify({\n        item_id: itemId,\n        likes: newLikesCount,\n      }),\n    });\n\n    if (!response.ok) {\n      throw new Error('Error counting likes');\n    }\n  } catch (error) {\n    console.error('Error counting likes:', error.message);\n  }\n};\n\nconst updateLikesCount = (itemId, newLikesCount) => {\n  const countsLike = document.querySelector(`[data-item-id=\"${itemId}\"] + .add`);\n  if (countsLike) {\n    countsLike.textContent = newLikesCount;\n  }\n};\n\n\n\n\n//# sourceURL=webpack://javascript-capston/./module/countsLike.js?");
 
 /***/ }),
 
@@ -36,7 +56,27 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \***************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _getMovie_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./getMovie.js */ \"./module/getMovie.js\");\n/* harmony import */ var _countsLike_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./countsLike.js */ \"./module/countsLike.js\");\n/* harmony import */ var _comments_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./comments.js */ \"./module/comments.js\");\n/* harmony import */ var _getLikes_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./getLikes.js */ \"./module/getLikes.js\");\n\n\n\n\n\nconst container = document.getElementById('container');\nconst display = async () => {\n  try {\n    const likesData = await (0,_getLikes_js__WEBPACK_IMPORTED_MODULE_3__[\"default\"])();\n    const getMovieData = await (0,_getMovie_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"])();\n    container.classList.add('movies-container');\n\n    container.innerHTML = '';\n    const totalLikesPerMovie = likesData.reduce((acc, likes) => {\n      acc[likes.item_id] = (acc[likes.item_id] || 0) + likes.likes;\n      return acc;\n    }, {});\n    getMovieData.forEach((element) => {\n      const movieDiv = document.createElement('div');\n      const heartCount = document.createElement('section');\n      movieDiv.classList.add('movie');\n      heartCount.classList.add('heartCount');\n      const img = document.createElement('img');\n      const p = document.createElement('p');\n      const heartIcon = document.createElement('i');\n      const countsLike = document.createElement('span');\n      const a = document.createElement('a');\n      a.classList.add('anc');\n      p.textContent = element.name;\n\n      a.textContent = 'comments';\n      a.href = '#';\n      img.src = element.image.original;\n      img.alt = 'No image found';\n      img.width = 200;\n      img.height = 300;\n      container.appendChild(img);\n      heartIcon.classList.add('far', 'fa-heart');\n      heartIcon.setAttribute('data-item-id', element.id);\n\n      heartIcon.addEventListener('click', async (event) => {\n        const itemId = event.target.getAttribute('data-item-id'); // Get the item_id from the custom attribute\n        console.log(likesData);\n\n        let likesInfo = likesData.find((likes) => likes.item_id === itemId);\n        console.log(likesInfo);\n        if (!likesInfo) {\n          likesInfo = { item_id: itemId, likes: 0 };\n        }\n\n        const newLikesCount = likesInfo.likes + 1;\n\n        await (0,_countsLike_js__WEBPACK_IMPORTED_MODULE_1__.countLikes)(itemId, newLikesCount);\n\n        (0,_countsLike_js__WEBPACK_IMPORTED_MODULE_1__.updateLikesCount)(itemId, newLikesCount);\n\n        totalLikesPerMovie[itemId] = newLikesCount;\n        display();\n      });\n\n      countsLike.classList.add('add');\n      countsLike.textContent = totalLikesPerMovie[element.id] || 0;\n      movieDiv.appendChild(img);\n      const sect = document.createElement('section');\n      sect.appendChild(p);\n\n      sect.appendChild(a);\n      movieDiv.appendChild(sect);\n      heartCount.appendChild(countsLike);\n      heartCount.appendChild(heartIcon);\n      container.appendChild(movieDiv);\n      container.appendChild(heartCount);\n      sect.classList.add('sect');\n      container.appendChild(sect);\n\n      a.addEventListener('click', (e) => {\n        (0,_comments_js__WEBPACK_IMPORTED_MODULE_2__[\"default\"])(e, element.image.original, element.name, element.genres, element.language);\n      });\n    });\n  } catch (error) {\n    console.log('getting error finding movie', error);\n  }\n};\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (display);\n\n\n//# sourceURL=webpack://javascript-capston/./module/display.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _getMovie_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./getMovie.js */ \"./module/getMovie.js\");\n/* harmony import */ var _countsLike_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./countsLike.js */ \"./module/countsLike.js\");\n/* harmony import */ var _comments_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./comments.js */ \"./module/comments.js\");\n/* harmony import */ var _getLikes_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./getLikes.js */ \"./module/getLikes.js\");\n\n\n\n\n\nconst container = document.getElementById('container');\n\nconst display = async () => {\n  try {\n    const likesData = await (0,_getLikes_js__WEBPACK_IMPORTED_MODULE_3__[\"default\"])();\n    const getMovieData = await (0,_getMovie_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"])();\n    container.classList.add('movies-container');\n\n    const totalLikesPerMovie = likesData.reduce((acc, likes) => {\n      acc[likes.item_id] = (acc[likes.item_id] || 0) + likes.likes;\n      return acc;\n    }, {});\n\n    const cardscounter = () => {\n      const cardNum = document.querySelector('#cardNum');\n      const cards = document.querySelectorAll('.movie');\n      cardNum.innerHTML = `Shows(${cards.length})`;\n    };\n\n    container.innerHTML = ''; // Clear the container before adding new elements\n\n    getMovieData.forEach((element) => {\n      const movieDiv = document.createElement('div');\n      movieDiv.classList.add('movie');\n\n      const img = document.createElement('img');\n      const p = document.createElement('p');\n      const a = document.createElement('a');\n      const heartIcon = document.createElement('i');\n      const countsLike = document.createElement('span');\n      const heartCount = document.createElement('section');\n\n      a.classList.add('anc');\n      p.textContent = element.name;\n      a.textContent = 'comments';\n      a.href = '#';\n      img.src = element.image.original;\n      img.alt = 'No image found';\n      img.width = 200;\n      img.height = 300;\n\n      heartIcon.classList.add('far', 'fa-heart');\n      heartIcon.setAttribute('data-item-id', element.id);\n\n      heartIcon.addEventListener('click', async (event) => {\n        const itemId = event.target.getAttribute('data-item-id'); // Get the item_id from the custom attribute\n\n        let likesInfo = likesData.find((likes) => likes.item_id === itemId);\n\n        if (!likesInfo) {\n          likesInfo = { item_id: itemId, likes: 0 };\n        }\n\n        const newLikesCount = likesInfo.likes + 1;\n\n        await (0,_countsLike_js__WEBPACK_IMPORTED_MODULE_1__.countLikes)(itemId, newLikesCount);\n        (0,_countsLike_js__WEBPACK_IMPORTED_MODULE_1__.updateLikesCount)(itemId, newLikesCount);\n\n        totalLikesPerMovie[itemId] = newLikesCount;\n        display();\n      });\n\n      countsLike.classList.add('add');\n      countsLike.textContent = totalLikesPerMovie[element.id] || 0;\n      movieDiv.appendChild(img);\n\n      const sect = document.createElement('section');\n      sect.appendChild(p);\n      sect.appendChild(a);\n      movieDiv.appendChild(sect);\n\n      heartCount.appendChild(countsLike);\n      heartCount.appendChild(heartIcon);\n      movieDiv.appendChild(heartCount);\n\n      sect.classList.add('sect');\n      container.appendChild(movieDiv);\n\n      a.addEventListener('click', () => {\n        (0,_comments_js__WEBPACK_IMPORTED_MODULE_2__[\"default\"])(element.id, element.image.original, element.name,\n          element.genres, element.language);\n      });\n    });\n    cardscounter();\n  } catch (error) {\n    console.log('Une erreur s\\'est produite lors de l\\'affichage des films', error);\n  }\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (display);\n\n\n//# sourceURL=webpack://javascript-capston/./module/display.js?");
+
+/***/ }),
+
+/***/ "./module/enterComment.js":
+/*!********************************!*\
+  !*** ./module/enterComment.js ***!
+  \********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst url = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/s1szyoelhRqTHhs2c19P/comments/';\nconst addComments = async (mId, uName, uComment) => {\n  fetch(url, {\n    method: 'POST',\n    dataType: 'json',\n    body: JSON.stringify({\n      item_id: mId,\n      username: uName,\n      comment: uComment,\n    }),\n    headers: {\n      'Content-type': 'application/json; charset=UTF-8',\n    },\n  })\n    .then((response) => {\n      if (!response.ok) {\n        throw new Error('Error entering like');\n      }\n\n      return response.text();\n    })\n    .catch((error) => {\n      console.error('Like Error:', error);\n    });\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (addComments);\n\n\n//# sourceURL=webpack://javascript-capston/./module/enterComment.js?");
+
+/***/ }),
+
+/***/ "./module/getComment.js":
+/*!******************************!*\
+  !*** ./module/getComment.js ***!
+  \******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst getComments = async (itemId) => {\n  const options = {\n    method: 'GET',\n    headers: {\n      'Content-Type': 'application/json',\n    },\n  };\n\n  const response = await fetch(\n    `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/s1szyoelhRqTHhs2c19P/comments?item_id=${itemId}`,\n    options,\n  );\n\n  const data = await response.json();\n  return data;\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (getComments);\n\n//# sourceURL=webpack://javascript-capston/./module/getComment.js?");
 
 /***/ }),
 
@@ -77,6 +117,16 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((module) => {
 
 eval("\n\n/*\n  MIT License http://www.opensource.org/licenses/mit-license.php\n  Author Tobias Koppers @sokra\n*/\nmodule.exports = function (cssWithMappingToString) {\n  var list = [];\n\n  // return the list of modules as css string\n  list.toString = function toString() {\n    return this.map(function (item) {\n      var content = \"\";\n      var needLayer = typeof item[5] !== \"undefined\";\n      if (item[4]) {\n        content += \"@supports (\".concat(item[4], \") {\");\n      }\n      if (item[2]) {\n        content += \"@media \".concat(item[2], \" {\");\n      }\n      if (needLayer) {\n        content += \"@layer\".concat(item[5].length > 0 ? \" \".concat(item[5]) : \"\", \" {\");\n      }\n      content += cssWithMappingToString(item);\n      if (needLayer) {\n        content += \"}\";\n      }\n      if (item[2]) {\n        content += \"}\";\n      }\n      if (item[4]) {\n        content += \"}\";\n      }\n      return content;\n    }).join(\"\");\n  };\n\n  // import a list of modules into the list\n  list.i = function i(modules, media, dedupe, supports, layer) {\n    if (typeof modules === \"string\") {\n      modules = [[null, modules, undefined]];\n    }\n    var alreadyImportedModules = {};\n    if (dedupe) {\n      for (var k = 0; k < this.length; k++) {\n        var id = this[k][0];\n        if (id != null) {\n          alreadyImportedModules[id] = true;\n        }\n      }\n    }\n    for (var _k = 0; _k < modules.length; _k++) {\n      var item = [].concat(modules[_k]);\n      if (dedupe && alreadyImportedModules[item[0]]) {\n        continue;\n      }\n      if (typeof layer !== \"undefined\") {\n        if (typeof item[5] === \"undefined\") {\n          item[5] = layer;\n        } else {\n          item[1] = \"@layer\".concat(item[5].length > 0 ? \" \".concat(item[5]) : \"\", \" {\").concat(item[1], \"}\");\n          item[5] = layer;\n        }\n      }\n      if (media) {\n        if (!item[2]) {\n          item[2] = media;\n        } else {\n          item[1] = \"@media \".concat(item[2], \" {\").concat(item[1], \"}\");\n          item[2] = media;\n        }\n      }\n      if (supports) {\n        if (!item[4]) {\n          item[4] = \"\".concat(supports);\n        } else {\n          item[1] = \"@supports (\".concat(item[4], \") {\").concat(item[1], \"}\");\n          item[4] = supports;\n        }\n      }\n      list.push(item);\n    }\n  };\n  return list;\n};\n\n//# sourceURL=webpack://javascript-capston/./node_modules/css-loader/dist/runtime/api.js?");
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/runtime/getUrl.js":
+/*!********************************************************!*\
+  !*** ./node_modules/css-loader/dist/runtime/getUrl.js ***!
+  \********************************************************/
+/***/ ((module) => {
+
+eval("\n\nmodule.exports = function (url, options) {\n  if (!options) {\n    options = {};\n  }\n  if (!url) {\n    return url;\n  }\n  url = String(url.__esModule ? url.default : url);\n\n  // If url is already wrapped in quotes, remove them\n  if (/^['\"].*['\"]$/.test(url)) {\n    url = url.slice(1, -1);\n  }\n  if (options.hash) {\n    url += options.hash;\n  }\n\n  // Should url be wrapped?\n  // See https://drafts.csswg.org/css-values-3/#urls\n  if (/[\"'() \\t\\n]|(%20)/.test(url) || options.needQuotes) {\n    return \"\\\"\".concat(url.replace(/\"/g, '\\\\\"').replace(/\\n/g, \"\\\\n\"), \"\\\"\");\n  }\n  return url;\n};\n\n//# sourceURL=webpack://javascript-capston/./node_modules/css-loader/dist/runtime/getUrl.js?");
 
 /***/ }),
 
@@ -168,6 +218,16 @@ eval("\n\n/* istanbul ignore next  */\nfunction styleTagTransform(css, styleElem
 
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n/* harmony import */ var _module_display_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../module/display.js */ \"./module/display.js\");\n\n\n\n(0,_module_display_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"])();\n\n\n//# sourceURL=webpack://javascript-capston/./src/index.js?");
 
+/***/ }),
+
+/***/ "./src/images.png":
+/*!************************!*\
+  !*** ./src/images.png ***!
+  \************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+eval("module.exports = __webpack_require__.p + \"db3512b2a54687d55a16.png\";\n\n//# sourceURL=webpack://javascript-capston/./src/images.png?");
+
 /***/ })
 
 /******/ 	});
@@ -196,6 +256,9 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _sty
 /******/ 		return module.exports;
 /******/ 	}
 /******/ 	
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = __webpack_modules__;
+/******/ 	
 /************************************************************************/
 /******/ 	/* webpack/runtime/compat get default export */
 /******/ 	(() => {
@@ -221,6 +284,18 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _sty
 /******/ 		};
 /******/ 	})();
 /******/ 	
+/******/ 	/* webpack/runtime/global */
+/******/ 	(() => {
+/******/ 		__webpack_require__.g = (function() {
+/******/ 			if (typeof globalThis === 'object') return globalThis;
+/******/ 			try {
+/******/ 				return this || new Function('return this')();
+/******/ 			} catch (e) {
+/******/ 				if (typeof window === 'object') return window;
+/******/ 			}
+/******/ 		})();
+/******/ 	})();
+/******/ 	
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
 /******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
@@ -235,6 +310,55 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _sty
 /******/ 			}
 /******/ 			Object.defineProperty(exports, '__esModule', { value: true });
 /******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/publicPath */
+/******/ 	(() => {
+/******/ 		var scriptUrl;
+/******/ 		if (__webpack_require__.g.importScripts) scriptUrl = __webpack_require__.g.location + "";
+/******/ 		var document = __webpack_require__.g.document;
+/******/ 		if (!scriptUrl && document) {
+/******/ 			if (document.currentScript)
+/******/ 				scriptUrl = document.currentScript.src;
+/******/ 			if (!scriptUrl) {
+/******/ 				var scripts = document.getElementsByTagName("script");
+/******/ 				if(scripts.length) {
+/******/ 					var i = scripts.length - 1;
+/******/ 					while (i > -1 && !scriptUrl) scriptUrl = scripts[i--].src;
+/******/ 				}
+/******/ 			}
+/******/ 		}
+/******/ 		// When supporting browsers where an automatic publicPath is not supported you must specify an output.publicPath manually via configuration
+/******/ 		// or pass an empty string ("") and set the __webpack_public_path__ variable from your code to use your own logic.
+/******/ 		if (!scriptUrl) throw new Error("Automatic publicPath is not supported in this browser");
+/******/ 		scriptUrl = scriptUrl.replace(/#.*$/, "").replace(/\?.*$/, "").replace(/\/[^\/]+$/, "/");
+/******/ 		__webpack_require__.p = scriptUrl;
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/jsonp chunk loading */
+/******/ 	(() => {
+/******/ 		__webpack_require__.b = document.baseURI || self.location.href;
+/******/ 		
+/******/ 		// object to store loaded and loading chunks
+/******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
+/******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
+/******/ 		var installedChunks = {
+/******/ 			"index": 0
+/******/ 		};
+/******/ 		
+/******/ 		// no chunk on demand loading
+/******/ 		
+/******/ 		// no prefetching
+/******/ 		
+/******/ 		// no preloaded
+/******/ 		
+/******/ 		// no HMR
+/******/ 		
+/******/ 		// no HMR manifest
+/******/ 		
+/******/ 		// no on chunks loaded
+/******/ 		
+/******/ 		// no jsonp function
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/nonce */
