@@ -213,3 +213,8 @@ td {
   border: 2px solid rgb(92, 92, 247);
   border-radius: 10px;
 }
+
+.cards-con {
+  padding-top: 2%;
+  padding-bottom: 62%;
+}
