@@ -21,7 +21,7 @@ header {
   justify-content: center;
   background-color: white;
   border: 3px solid black;
-  background-image: url(./images.png);
+  background-image: url(./assets/images.png);
   background-repeat: no-repeat;
   background-size: 85px 85px;
   background-position: 20% center;
