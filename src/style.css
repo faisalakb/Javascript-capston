@@ -22,15 +22,16 @@ header {
   background-color: rgb(101, 101, 247);
 }
 
-.movie a {
-  text-decoration: none;
-  color: blue;
-}
-
 header span {
   border: 2px solid yellowgreen;
   padding: 6px 6px;
   margin-right: auto;
+}
+
+header span a {
+  text-decoration: none;
+  color: white;
+  font-family: "Courier New", Courier, monospace;
 }
 
 header nav ul {
@@ -44,6 +45,17 @@ header nav ul li {
   padding: 0 40px;
 }
 
+header nav ul li a {
+  text-decoration: none;
+  color: #fff;
+  font-family: "Courier New", Courier, monospace;
+  transition: 0.5s;
+}
+
+header nav ul li a:hover {
+  color: rgb(84, 255, 5);
+}
+
 header nav ul li:first-child a {
   text-decoration: underline;
   font-family: "Roboto", sans-serif;
@@ -51,24 +63,23 @@ header nav ul li:first-child a {
 }
 
 footer {
+  margin-top: auto;
+  padding: 20px 20px;
   color: #fff;
   background-color: rgb(92, 92, 247);
   text-align: center;
-  margin-top: 20px;
   position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
-  padding: 20px;
 }
 
-.cards {
-  display: flex;
-  flex-direction: column;
-  column-gap: 20px;
-  flex-wrap: wrap;
-  row-gap: 10px;
-  justify-content: flex-start; /* Optional: Aligns items to the left */
+.movies-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  gap: 20px;
+  justify-items: flex-start;
   max-height: calc(100vh - 20px);
   border: 2px solid yellow;
 }
@@ -170,11 +181,13 @@ footer {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
 }
 
 .movie img {
   width: 200px;
   height: 300px;
+  max-width: 100%;
 }
 
 .heartCount {
@@ -204,4 +217,14 @@ table,
 th,
 td {
   border: 1px solid;
+}
+
+.sect {
+  display: flex;
+  flex-direction: column;
+  width: 54%;
+  height: 70px;
+  background-color: #8f658c;
+  border: 2px solid rgb(92, 92, 247);
+  border-radius: 10px;
 }
