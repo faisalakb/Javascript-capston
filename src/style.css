@@ -20,6 +20,10 @@ header {
   padding: 35px 50px;
   justify-content: center;
   background-color: rgb(101, 101, 247);
+  background-image: url(./images.png);
+  background-repeat: no-repeat;
+  background-size: 85px 85px;
+  background-position: 20% center;
 }
 
 header span {
@@ -39,10 +43,12 @@ header nav ul {
   display: flex;
   flex-direction: row;
   padding: 11px 0;
+  margin-left: 10%;
 }
 
 header nav ul li {
   padding: 0 40px;
+  margin-left: 20px
 }
 
 header nav ul li a {
@@ -211,7 +217,7 @@ td {
   height: 70px;
   background-color: #8f658c;
   border: 2px solid rgb(92, 92, 247);
-  border-radius: 10px;
+  border-radius: 7px;
 }
 
 .cards-con {
