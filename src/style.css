@@ -64,7 +64,7 @@ header nav ul li:first-child a {
 
 footer {
   margin-top: auto;
-  padding: 20px 20px;
+  padding: 15px 15px;
   color: #fff;
   background-color: rgb(92, 92, 247);
   text-align: center;
@@ -214,10 +214,14 @@ td {
   border-radius: 10px;
 }
 
-.cCount{
-  border: 2px solid blue;
-  width: 80px;
-  height:100px;
-  margin-right: 60%;
-  color:#000
+.cards-con {
+  padding-top: 2%;
+  padding-bottom: 62%;
+}
+
+.cCount {
+  position: absolute;
+  max-width: 500px;
+  margin-bottom: 2%;
+  color: #000;
 }

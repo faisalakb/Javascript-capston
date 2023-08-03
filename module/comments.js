@@ -1,6 +1,7 @@
 // Import the necessary functions
 import enterComments from './enterComment.js';
 import getComments from './getComment.js';
+import countComments from './countComments.js';
 
 const container = document.getElementById('container');
 
@@ -8,11 +9,13 @@ const container = document.getElementById('container');
 const popup = async (mId, image, name, genre, language) => {
   // Get the comments data for the given mId
   const commentData = await getComments(mId);
-  
+
   const commentContainer = document.createElement('div');
   const commentItems = document.createElement('div');
-  const cCount=document.createElement('h3');
+  const cCount = document.createElement('h3');
   cCount.classList.add('cCount');
+
+  const comCount = await countComments(mId);
 
   const dynCom = document.createElement('div');
   const tbl = document.createElement('table');
@@ -37,10 +40,9 @@ const popup = async (mId, image, name, genre, language) => {
   trH.appendChild(th3);
 
   tbl.appendChild(trH);
-  let count=0
   if (Array.isArray(commentData)) {
     // Loop through each comment and create rows in the table
-    
+
     commentData.forEach((element) => {
       const tr = document.createElement('tr');
       const dat = document.createElement('td');
@@ -53,9 +55,8 @@ const popup = async (mId, image, name, genre, language) => {
       tr.appendChild(usr);
       tr.appendChild(com);
       tbl.appendChild(tr);
-      count=count+1
     });
-    cCount.textContent='Total Comments are'+count;
+    cCount.textContent = `Total Comments :${comCount}`;
     // Append the table to the dynamic comment container
     dynCom.appendChild(tbl);
   } else {
@@ -92,7 +93,6 @@ const popup = async (mId, image, name, genre, language) => {
   <input type="text" class="inptxt" id="revId" placeholder="Your Comment" maxlength="30"><br><br>
   <input id="submitBtn"class="subBtn"type="submit" value="Submit"></section>`;
 
-
   // Add event listener to the submit button to handle comment submission
 
   // Add event listener to the submit button using event delegation
@@ -105,38 +105,43 @@ const popup = async (mId, image, name, genre, language) => {
       await enterComments(mId, userName.value, userReview.value);
       userName.value = '';
       userReview.value = '';
-
+      const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+      await delay(500);
       // Update the comment section dynamically with the newly entered comment
       const newCommentData = await getComments(mId);
-      cCount.textContent= newCommentData.length;
-      const newComment = newCommentData[newCommentData.length - 1];
+      cCount.textContent = `Total Comments :${await countComments(mId)}`;
 
-      const tr = document.createElement('tr');
-      const dat = document.createElement('td');
-      const usr = document.createElement('td');
-      const com = document.createElement('td');
-      dat.textContent = newComment.creation_date;
-      usr.textContent = newComment.username;
-      com.textContent = newComment.comment;
-      tr.appendChild(dat);
-      tr.appendChild(usr);
-      tr.appendChild(com);
-      tbl.appendChild(tr);
+      while (tbl.lastElementChild) {
+        tbl.removeChild(tbl.lastElementChild);
+      }
+      tbl.appendChild(trH);
+      newCommentData.forEach((newComment) => {
+        const tr = document.createElement('tr');
+        const dat = document.createElement('td');
+        const usr = document.createElement('td');
+        const com = document.createElement('td');
+        dat.textContent = newComment.creation_date;
+        usr.textContent = newComment.username;
+        com.textContent = newComment.comment;
+        tr.appendChild(dat);
+        tr.appendChild(usr);
+        tr.appendChild(com);
+        tbl.appendChild(tr);
+      });
     }
   });
-    // Append all elements to the comment container
-    commentItems.appendChild(img);
-    itemsSection.appendChild(nameTag);
-    itemsSection.appendChild(languageTag);
-    itemsSection.appendChild(brTag);
-    itemsSection.appendChild(genreTag);
-    commentItems.appendChild(inpSect);
-    commentItems.appendChild(itemsSection);
-    commentItems.appendChild(cCount);
-    commentItems.appendChild(dynCom);
-    commentContainer.appendChild(commentItems);
-  
+  // Append all elements to the comment container
+  commentItems.appendChild(img);
+  itemsSection.appendChild(nameTag);
+  itemsSection.appendChild(languageTag);
+  itemsSection.appendChild(brTag);
+  itemsSection.appendChild(genreTag);
+  commentItems.appendChild(inpSect);
+  commentItems.appendChild(itemsSection);
+  commentItems.appendChild(cCount);
 
+  commentContainer.appendChild(commentItems);
+  commentItems.appendChild(dynCom);
 };
 
 // Function to show comments popup for a movie
