@@ -42,7 +42,8 @@ const display = async () => {
       heartIcon.setAttribute('data-item-id', element.id);
 
       heartIcon.addEventListener('click', async (event) => {
-        const itemId = event.target.getAttribute('data-item-id');
+        const itemId = event.target.getAttribute('data-item-id'); // Get the item_id from the custom attribute
+
         let likesInfo = likesData.find((likes) => likes.item_id === itemId);
 
         if (!likesInfo) {
@@ -74,8 +75,9 @@ const display = async () => {
       sect.classList.add('sect');
       container.appendChild(movieDiv);
 
-      a.addEventListener('click', (e) => {
-        comments(e, element.image.original, element.name, element.genres, element.language);
+      a.addEventListener('click', () => {
+        comments(element.id, element.image.original, element.name,
+          element.genres, element.language);
       });
     });
   } catch (error) {
