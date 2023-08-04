@@ -286,6 +286,6 @@ I would like to thank the Microverse full-stack curriculum for the inspiration a
 
 ## 📝 License <a name="license"></a>
 
-This project is under [MIT](https://github.com/faisalakb/Javascript-capston/blob/development/LICENSE) licensed.
+This project is under [MIT](https://github.com/faisalakb/Javascript-capston/blob/dev/LICENSE) licensed.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
