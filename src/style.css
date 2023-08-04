@@ -231,3 +231,103 @@ td {
   margin-bottom: 2%;
   color: #000;
 }
+
+@media screen and (max-width: 400px) {
+  header {
+    padding: 5px 10px;
+    background-size: 20px 20px;
+  }
+
+  header span {
+    padding: 1px 2px;
+  }
+
+  header nav ul {
+    padding: 1px 0;
+    margin-left: 1%;
+  }
+
+  header nav ul li {
+    padding: 0 5px;
+    margin-left: 3px;
+  }
+
+  .movies-container {
+    grid-template-columns: 1fr; /* Un film par ligne */
+    grid-template-rows: repeat(16, 1fr); /* Seize films par colonne */
+    gap: 10px; /* Réduire l'espace entre les films */
+    align-items: center; /* Centrer verticalement les éléments */
+  }
+}
+
+@media screen and (max-width: 600px) {
+  header {
+    padding: 10px 15px;
+    background-size: 30px 30px;
+  }
+
+  header span {
+    padding: 2px 3px;
+  }
+
+  header nav ul {
+    padding: 2px 0;
+    margin-left: 2%;
+  }
+
+  header nav ul li {
+    padding: 0 10px;
+    margin-left: 5px;
+  }
+
+  .movies-container {
+    grid-template-columns: 1fr; /* Un film par ligne */
+    grid-template-rows: repeat(16, 1fr); /* Seize films par colonne */
+    gap: 10px; /* Réduire l'espace entre les films */
+    align-items: center; /* Centrer verticalement les éléments */
+  }
+
+  .cItems {
+    width: 100%; /* Réduire la largeur du popup */
+    height: 100%; /* Réduire la hauteur du popup */
+    top: 1%; /* Ajuster la position verticale du popup */
+    left: 10%; /* Ajuster la position horizontale du popup */
+  }
+
+  .inpSect {
+    position: absolute;
+    margin-top: 35%;
+    margin-left: -40%;
+  }
+
+  .commentImg {
+    position: absolute;
+    width: 250px;
+    height: 300px;
+    margin-top: -90%;
+  }
+
+  .dynCom {
+    position: absolute;
+    border: 2px solid blue;
+    max-height: 200px; /* Set the maximum height to control the visible area */
+    max-width: 500px;
+    overflow-y: auto; /* Add vertical scrollbar when content exceeds max-height */
+    margin-top: 55%;
+    color: black;
+  }
+
+  .itemSection {
+    display: none;
+  }
+
+  .close {
+    position: absolute;
+    font-weight: bold;
+    z-index: 1;
+    font-size: 48px;
+    color: red;
+    margin-top: -170%;
+    margin-left: 80%;
+  }
+}
