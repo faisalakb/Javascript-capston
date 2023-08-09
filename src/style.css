@@ -194,8 +194,7 @@ footer {
   color: rgb(143, 6, 6);
 }
 
-
-.fa-heart:before {
+.fa-heart::before {
   color: rgb(114, 5, 5);
 }
 
