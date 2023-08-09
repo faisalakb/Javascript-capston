@@ -10,7 +10,7 @@ body {
   display: flex;
   flex-direction: column;
   font-family: "Courier New", serif;
-  background-color: #3f2e3e;
+  background-color: #ffffff;
   color: white;
 }
 
@@ -20,11 +20,11 @@ header {
   padding: 35px 50px;
   justify-content: center;
   background-color: white;
-  border: 3px solid black;
   background-image: url(./assets/images.png);
   background-repeat: no-repeat;
   background-size: 85px 85px;
   background-position: 20% center;
+  box-shadow: 0 2px 4px rgba(110, 90, 90, 0.863);
 }
 
 header span {
@@ -60,7 +60,7 @@ header nav ul li a {
 }
 
 header nav ul li a:hover {
-  color: rgb(84, 255, 5);
+  color: rgb(5, 218, 255);
 }
 
 header nav ul li:first-child a {
@@ -79,6 +79,7 @@ footer {
   bottom: 0;
   left: 0;
   right: 0;
+  box-shadow: 0 2px 4px rgba(31, 2, 2, 0.863);
 }
 
 .movies-container {
@@ -188,6 +189,15 @@ footer {
   column-gap: 5px;
 }
 
+.add {
+  color: rgb(143, 6, 6);
+}
+
+
+.fa-heart:before {
+  color: rgb(114, 5, 5);
+}
+
 .anc {
   text-decoration: none;
   font-size: large;
@@ -214,10 +224,9 @@ td {
 .sect {
   display: flex;
   flex-direction: column;
-  width: 45%;
+  width: calc(200px + 1px); /* 200px + 2px border + 2px border */
   height: 70px;
   background-color: #8f658c;
-  border: 2px solid black;
 }
 
 .cards-con {
