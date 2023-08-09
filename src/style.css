@@ -10,7 +10,7 @@ body {
   display: flex;
   flex-direction: column;
   font-family: "Courier New", serif;
-  background-color: #ffffff;
+  background-color: #dcdddd21;
   color: white;
 }
 
@@ -25,6 +25,7 @@ header {
   background-size: 85px 85px;
   background-position: 20% center;
   box-shadow: 0 2px 4px rgba(110, 90, 90, 0.863);
+  width: 100%;
 }
 
 header span {
