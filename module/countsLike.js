@@ -22,25 +22,9 @@ const countLikes = async (itemId, newLikesCount) => {
 };
 
 const updateLikesCount = (itemId, newLikesCount) => {
-  const heartIcon = document.querySelector(`[data-item-id="${itemId}"]`);
-  const countsLike = heartIcon.parentElement.querySelector('.add');
-  
-  if (countsLike && heartIcon) {
-    // Mettre à jour le compteur
+  const countsLike = document.querySelector(`[data-item-id="${itemId}"] + .add`);
+  if (countsLike) {
     countsLike.textContent = newLikesCount;
-    countsLike.classList.add('increment');
-    
-    // Ajouter la classe liked au cœur
-    heartIcon.classList.add('liked');
-    
-    // Animer le conteneur
-    const heartCount = heartIcon.parentElement;
-    heartCount.style.borderColor = 'var(--error-color)';
-    
-    // Retirer les classes d'animation après un délai
-    setTimeout(() => {
-      countsLike.classList.remove('increment');
-    }, 300);
   }
 };
 
